@@ -23,93 +23,158 @@
             justify-content: center;
             align-items: center;
             padding: 24px;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
         }
 
         .container {
             max-width: 580px;
             width: 100%;
             text-align: center;
-            padding: 60px 32px;
+            padding: 48px 32px;
         }
 
-        .confirmation-code {
-            font-size: 48px;
+        .code-display {
+            font-size: 28px;
             font-weight: 400;
-            letter-spacing: 0.02em;
-            line-height: 1.2;
-            margin-bottom: 40px;
+            letter-spacing: -0.01em;
+            margin-bottom: 32px;
             color: #1d1d1f;
+            padding: 24px;
             background-color: #f5f5f7;
-            padding: 32px;
             border-radius: 12px;
-            font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
-            word-break: break-all;
+            font-family: 'SF Mono', 'Roboto Mono', monospace;
         }
 
-        .instructions {
+        .copy-button {
+            background-color: #1d1d1f;
+            color: #ffffff;
+            border: none;
+            border-radius: 980px;
             font-size: 17px;
-            font-weight: 300;
-            line-height: 1.65;
-            color: #515154;
-            max-width: 480px;
-            margin: 0 auto 60px;
-            text-align: center;
+            font-weight: 400;
+            padding: 14px 32px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: -0.01em;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out 0.4s forwards;
         }
 
-        .instructions p {
-            margin-bottom: 16px;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .footer {
-            font-size: 14px;
-            color: #86868b;
-            font-weight: 300;
-            letter-spacing: 0.01em;
-            margin-top: 40px;
+        .copy-button:hover {
+            background-color: #424245;
+            transform: scale(1.02);
+        }
+
+        .copy-button:active {
+            transform: scale(0.98);
+        }
+
+        .copy-button.copied {
+            background-color: #34c759;
         }
 
         @media (max-width: 768px) {
             .container {
-                padding: 40px 24px;
+                padding: 32px 24px;
             }
             
-            .confirmation-code {
-                font-size: 36px;
-                padding: 24px;
-            }
-            
-            .instructions {
-                font-size: 16px;
+            .code-display {
+                font-size: 24px;
+                padding: 20px;
             }
         }
 
         @media (max-width: 480px) {
-            .confirmation-code {
-                font-size: 28px;
-                padding: 20px;
+            .code-display {
+                font-size: 22px;
+                padding: 18px;
             }
             
-            .instructions {
-                font-size: 15px;
+            .copy-button {
+                font-size: 16px;
+                padding: 12px 28px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="confirmation-code">
-            @Microworkers2302
-        </div>
-        
-        <div class="instructions">
-            <p>This is your confirmation code for task completion.</p>
-            <p>Please copy and paste this code into the designated field on the Microworkers platform to confirm your participation.</p>
-            <p>Thank you for completing the survey.</p>
-        </div>
-        
-        <div class="footer">
-            Task completed • Code valid for verification
-        </div>
+        <div class="code-display">Code: @feel2302</div>
+        <button class="copy-button">Copy this code</button>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const copyButton = document.querySelector('.copy-button');
+            const codeText = "Code: @feel2302";
+            
+            copyButton.addEventListener('click', function() {
+                // Copy the code to clipboard
+                navigator.clipboard.writeText("@feel2302").then(() => {
+                    // Show feedback
+                    const originalText = copyButton.textContent;
+                    copyButton.textContent = "Copied!";
+                    copyButton.classList.add('copied');
+                    
+                    // Reset button after 2 seconds
+                    setTimeout(() => {
+                        copyButton.textContent = originalText;
+                        copyButton.classList.remove('copied');
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Failed to copy: ', err);
+                    // Fallback for older browsers
+                    const textArea = document.createElement('textarea');
+                    textArea.value = "@feel2302";
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    try {
+                        document.execCommand('copy');
+                        const originalText = copyButton.textContent;
+                        copyButton.textContent = "Copied!";
+                        copyButton.classList.add('copied');
+                        
+                        setTimeout(() => {
+                            copyButton.textContent = originalText;
+                            copyButton.classList.remove('copied');
+                        }, 2000);
+                    } catch (err) {
+                        console.error('Fallback copy failed: ', err);
+                    }
+                    document.body.removeChild(textArea);
+                });
+                
+                // Button press feedback
+                copyButton.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    copyButton.style.transform = '';
+                }, 150);
+            });
+            
+            // Add subtle animation to elements
+            const elements = document.querySelectorAll('.code-display, .copy-button');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(10px)';
+                el.style.animation = `fadeInUp 0.6s ease-out ${0.2 + (index * 0.1)}s forwards`;
+            });
+        });
+    </script>
 </body>
 </html>
