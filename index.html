@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Free Looksmaxing Guide</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -23,27 +24,30 @@ overflow-x:hidden;
 }
 
 .hero{
-padding:25px;
-background:
-linear-gradient(180deg,#ffffff 0%,#f7f7f7 100%);
+padding:30px 20px;
+text-align:left;
+background:linear-gradient(
+180deg,
+#ffffff 0%,
+#f6f6f6 100%
+);
 }
 
 .badge{
-display:inline-flex;
-align-items:center;
-gap:8px;
-background:#fff;
+display:inline-block;
 padding:10px 18px;
 border-radius:999px;
+background:#111;
+color:white;
 font-weight:700;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
 margin-bottom:20px;
+font-size: 0.9rem;
 }
 
 h1{
-font-size:42px;
-line-height:1;
+font-size:28px;
 font-weight:900;
+line-height:1.2;
 margin-bottom:15px;
 }
 
@@ -53,155 +57,238 @@ color:#d9a441;
 
 .subtitle{
 font-size:18px;
-line-height:1.6;
+line-height:1.5;
+max-width:500px;
+margin:0 0 30px 0;
 color:#555;
-margin-bottom:25px;
 }
 
-.book{
-width:100%;
+.hero-image-container {
+    max-width: 220px;
+    margin: 0 0 20px 0;
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 15px 20px rgba(0,0,0,.1));
+    border-radius: 18px;
+}
+
+.unlock-box{
+background:white;
+margin:20px;
+padding:24px;
 border-radius:24px;
-box-shadow:0 30px 60px rgba(0,0,0,.15);
-margin-bottom:25px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+text-align:center;
+}
+
+.unlock-box h2{
+font-size:26px;
+margin-bottom:10px;
+font-weight: 800;
+}
+
+.unlock-box p{
+color:#555;
+line-height:1.6;
+font-size: 16px;
+max-width: 400px;
+margin-left: auto;
+margin-right: auto;
 }
 
 .cta{
 display:block;
-width:100%;
-text-align:center;
-padding:20px;
-background:linear-gradient(135deg,#111,#2d2d2d);
-color:#fff;
-font-size:20px;
-font-weight:800;
+margin-top:20px;
+padding:18px;
 border-radius:18px;
+background:linear-gradient(
+90deg,
+#111,
+#d9a441
+);
+color:white;
 text-decoration:none;
-box-shadow:0 20px 40px rgba(0,0,0,.2);
-animation:pulse 2s infinite;
+font-size:18px;
+font-weight:800;
+transition: transform 0.1s ease, box-shadow 0.2s ease;
 }
 
-@keyframes pulse{
-50%{
-transform:scale(1.03);
-}
+.cta:hover {
+    transform: scale(1.01);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
 .section{
-padding:25px;
+padding:25px 20px;
 }
 
 .section-title{
 font-size:28px;
 font-weight:900;
-margin-bottom:20px;
 text-align:center;
+margin-bottom:20px;
 }
 
 .cards{
 display:grid;
-grid-template-columns:1fr 1fr;
 gap:14px;
 }
 
 .card{
 background:white;
 padding:18px;
-border-radius:18px;
-box-shadow:0 10px 30px rgba(0,0,0,.06);
+border-radius:20px;
+box-shadow:0 8px 25px rgba(0,0,0,.06);
 }
 
 .card img{
 width:100%;
-border-radius:12px;
-margin-bottom:10px;
+max-width: 160px;
+height: auto;
+border-radius:14px;
+margin-bottom:12px;
+display: block;
+margin-left: auto;
+margin-right: auto;
 }
 
 .card h3{
-font-size:15px;
-margin-bottom:6px;
+font-size:18px;
+margin-bottom:8px;
+text-align: center;
+font-weight: 700;
 }
 
 .card p{
-font-size:13px;
 color:#666;
 line-height:1.5;
+text-align: center;
+font-size: 14px;
 }
 
 .results{
-background:#0f1116;
-color:white;
-padding:30px 20px;
-border-radius:30px 30px 0 0;
-}
-
-.result-img{
-width:100%;
-border-radius:20px;
-margin-top:15px;
-}
-
-.steps{
-display:flex;
-flex-direction:column;
-gap:15px;
-margin-top:20px;
-}
-
-.step{
-display:flex;
-gap:15px;
-align-items:flex-start;
-background:white;
-padding:18px;
-border-radius:18px;
-box-shadow:0 10px 25px rgba(0,0,0,.06);
-}
-
-.number{
-width:42px;
-height:42px;
-border-radius:50%;
 background:#111;
 color:white;
+padding:30px 20px;
+}
+
+.results-title{
+text-align:center;
+font-size:30px;
+font-weight:900;
+margin-bottom:25px;
+}
+
+.before-after{
 display:flex;
-justify-content:center;
-align-items:center;
-font-weight:800;
-flex-shrink:0;
+gap:16px;
+overflow-x:auto;
+justify-content: center;
+flex-wrap: wrap;
+}
+
+.before-after img{
+width:220px;
+height: auto;
+border-radius:18px;
+object-fit: cover;
+box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+}
+
+.features{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+}
+
+.feature{
+background:white;
+border-radius:18px;
+padding:20px 12px;
+text-align:center;
+box-shadow:0 8px 25px rgba(0,0,0,.06);
+}
+
+.feature h4{
+margin-top:10px;
+font-weight: 700;
+font-size: 1rem;
 }
 
 .bottom{
-padding:30px 25px 50px;
-}
-
-.unlock{
-background:linear-gradient(135deg,#111,#000);
-color:white;
-padding:25px;
-border-radius:25px;
+padding:40px 20px;
 text-align:center;
 }
 
-.unlock h2{
-font-size:28px;
-margin-bottom:12px;
-}
-
-.unlock p{
-opacity:.8;
-line-height:1.6;
-margin-bottom:20px;
-}
-
-.unlock-btn{
-display:block;
-background:#d9a441;
-color:black;
+.bottom h2{
+font-size:32px;
 font-weight:900;
-padding:18px;
-border-radius:16px;
+margin-bottom:15px;
+}
+
+.bottom p{
+color:#666;
+line-height:1.6;
+margin-bottom:25px;
+max-width: 450px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.big-cta{
+display:block;
+padding:20px;
+background:#111;
+color:white;
 text-decoration:none;
-font-size:18px;
+font-size:20px;
+font-weight:800;
+border-radius:20px;
+transition: 0.1s ease;
+}
+
+.big-cta:hover {
+    background: #2a2a2a;
+    transform: scale(1.01);
+}
+
+.small{
+margin-top:12px;
+font-size:13px;
+color:#888;
+}
+
+@media (max-width: 550px) {
+    .before-after img {
+        width: 160px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        text-align: center;
+    }
+    .subtitle {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hero-image-container {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .card img {
+        max-width: 130px;
+    }
+    .before-after img {
+        width: 140px;
+    }
+    .unlock-box h2 {
+        font-size: 24px;
+    }
 }
 
 </style>
@@ -211,22 +298,36 @@ font-size:18px;
 <section class="hero">
 
 <div class="badge">
-🎁 100% FREE ACCESS
+FREE GUIDE
 </div>
 
 <h1>
-FREE LOOKSMAXING
-<span class="gold">GUIDE</span>
+FREE LOOKSMAXING <span class="gold">GUIDE</span>
 </h1>
 
 <p class="subtitle">
-Discover the exact strategies used to improve jawline definition, facial attractiveness, skincare, posture and overall appearance.
+Discover the exact routines, nutrition strategies,
+skincare habits and jawline techniques used to improve facial aesthetics.
 </p>
 
-<img src="ebook-cover.jpg" class="book">
+<div class="hero-image-container">
+    <img class="hero-image" 
+         src="https://i.postimg.cc/P56S92RF/1000144371-removebg-preview.png" 
+         alt="Looksmaxing Guide hero visual">
+</div>
 
-<a href="#" class="cta">
-UNLOCK MY FREE GUIDE →
+</section>
+
+<section class="unlock-box">
+
+<h2>Get the free guide</h2>
+
+<p>
+Access the complete looksmaxing blueprint. Learn the precise steps to enhance facial structure, reduce bloating, and sharpen your jawline.
+</p>
+
+<a href="https://appsave.space/cl/i/grjw42" class="cta" target="_blank" rel="noopener noreferrer">
+UNLOCK ACCESS
 </a>
 
 </section>
@@ -240,27 +341,24 @@ What's Inside
 <div class="cards">
 
 <div class="card">
-<img src="jawline.jpg">
+<img src="https://i.postimg.cc/6yDnw2Rc/1000144370-removebg-preview.png" 
+     alt="Jawline fundamentals">
 <h3>Jawline Fundamentals</h3>
-<p>Learn the science behind facial structure.</p>
+<p>Learn what actually creates a stronger facial structure.</p>
 </div>
 
 <div class="card">
-<img src="nutrition.jpg">
-<h3>Nutrition Strategy</h3>
-<p>Reduce facial bloating and improve definition.</p>
+<img src="https://i.postimg.cc/mzX1ntBz/1000144378-removebg-preview.png" 
+     alt="Nutrition strategies">
+<h3>Nutrition Strategies</h3>
+<p>Reduce puffiness and improve facial definition.</p>
 </div>
 
 <div class="card">
-<img src="mewing.jpg">
+<img src="https://i.postimg.cc/XrSGtMSD/1000144379-removebg-preview.png" 
+     alt="Facial exercises">
 <h3>Facial Exercises</h3>
-<p>Daily routines and posture optimization.</p>
-</div>
-
-<div class="card">
-<img src="skincare.jpg">
-<h3>Skincare Routine</h3>
-<p>Simple habits for a cleaner, healthier look.</p>
+<p>Daily habits that support a sharper appearance.</p>
 </div>
 
 </div>
@@ -269,44 +367,46 @@ What's Inside
 
 <section class="results">
 
-<h2 class="section-title">
+<h2 class="results-title">
 Real Results. Real Confidence.
 </h2>
 
-<img src="before-after.jpg" class="result-img">
+<div class="before-after">
+<img src="https://i.postimg.cc/mzDt7BCx/1000144366-removebg-preview.png" 
+     alt="Transformation result one">
+<img src="https://i.postimg.cc/0rzzQ59j/result2.png" 
+     alt="Transformation result two"
+     onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20220%20220%22%3E%3Crect%20width%3D%22220%22%20height%3D%22220%22%20fill%3D%22%23333%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22%23ccc%22%20text-anchor%3D%22middle%22%20dy%3D%22.3em%22%3Eresult%202%3C%2Ftext%3E%3C%2Fsvg%3E';">
+</div>
 
 </section>
 
 <section class="section">
 
 <h2 class="section-title">
-How It Works
+Why This Guide Works
 </h2>
 
-<div class="steps">
+<div class="features">
 
-<div class="step">
-<div class="number">1</div>
-<div>
-<h3>Click Unlock</h3>
-<p>Start the free access process.</p>
-</div>
+<div class="feature">
+<span style="font-size: 28px;">🎯</span>
+<h4>Focused</h4>
 </div>
 
-<div class="step">
-<div class="number">2</div>
-<div>
-<h3>Complete The Required Step</h3>
-<p>Verify your access through our partner page.</p>
-</div>
+<div class="feature">
+<span style="font-size: 28px;">🧠</span>
+<h4>Science Based</h4>
 </div>
 
-<div class="step">
-<div class="number">3</div>
-<div>
-<h3>Get Instant Access</h3>
-<p>Download the guide immediately.</p>
+<div class="feature">
+<span style="font-size: 28px;">📈</span>
+<h4>Visible Progress</h4>
 </div>
+
+<div class="feature">
+<span style="font-size: 28px;">✅</span>
+<h4>Simple Steps</h4>
 </div>
 
 </div>
@@ -315,19 +415,21 @@ How It Works
 
 <section class="bottom">
 
-<div class="unlock">
-
-<h2>Unlock Your Free Guide</h2>
+<h2>
+Get Instant Access
+</h2>
 
 <p>
-Thousands of users have already started improving their appearance and confidence.
+Join thousands of readers already improving their appearance with this free guide. The methods are straightforward and designed for real life.
 </p>
 
-<a href="#" class="unlock-btn">
-GET FREE ACCESS
+<a href="https://appsave.space/cl/i/grjw42" class="big-cta" target="_blank" rel="noopener noreferrer">
+GET IT NOW
 </a>
 
-</div>
+<p class="small">
+Free looksmaxing resource. No purchase necessary.
+</p>
 
 </section>
 
